@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+</head>
+<body class="bg-blue-100 text-slate-900">
+<div class="mx-auto max-w-md px-4">
+    <div class="mt-10 rounded-lg border border-slate-300 bg-slate-50 p-6 shadow-sm">
+        <form id="Exercise1" class="space-y-3 bg-green-100 p-4 rounded-lg">
+            <!-- Exercise 1 -->
+            <h1 class="text-center font-bold ">Exercise 1</h1>
+            <div>
+            <!-- Year input -->
+                <label for="year" class="font-bold text-sm text-gray-700">
+                Year
+                </label>
+                <input type="number" id="year" name="year" required class=" input-bordered w-full mb-3 rounded-lg">
+            <!-- check -->
+                <div class="flex gap-2">
+                <button type="button" class="hover:text-blue-500 font-bold btn-primary bg-blue-100 rounded-lg" onclick="checkLeapYear()">Check</button>
+                </div>
+            <!-- Result -->
+                <div class="mt-4">
+                    <p class="font-bold mb-1">Result:</p>
+                    <div id="result"
+                    class="w-full p-3 rounded-lg border border-gray-300 bg-white text-center font-semibold">
+                    </div>
+                </div>
+            </div>
+        </form>
+        <!-- Exercise 2 -->
+        <form id="Exercise2" class="space-y-3 bg-yellow-100 p-4 rounded-lg">
+                <h1 class="text-center font-bold ">Exercise 2</h1>
+                <p id="MyColor" class="font-semibold"></p>
+        </form>
+        <!-- Exercise 3 -->
+        <form id="More Exercise" class="space-y-3 bg-green-200 p-4 rounded-lg">
+            <h1 class="text-center font-bold ">More Exercise</h1>
+            <div class="flex gap-3 mt-3">
+                <a href="Exercise3.html" class="hover:border-blue-500 hover:text-blue-500 w-full rounded-md border border-slate-400 bg-white px-4 py-2 text-center text-sm font-medium hover:bg-slate-200">Exercise 3</a>
+                <a href="Exercise4.html" class="hover:border-blue-500 hover:text-blue-500 w-full rounded-md border border-slate-400 bg-white px-4 py-2 text-center text-sm font-medium hover:bg-slate-200">Exercise 4</a>
+            </div>
+        </form>
+    </div>
+</div>
+<!-- Exercise 1 Script -->
+ <script>
+    function checkLeapYear() {
+        const year = parseInt(document.getElementById("year").value);
+        const resultDiv = document.getElementById("result");
+
+        if (isNaN(year)) {
+            resultDiv.textContent = "Please enter a valid year.";
+            return;
+        }
+
+        if ((year % 4 === 0 && year % 100 !== 0) || (year % 400 === 0)) {
+            resultDiv.textContent = `${year} is a leap year.`;
+        } else {
+            resultDiv.textContent = `${year} is not a leap year.`;
+        }
+    }
+</script>
+<!-- Exercise 2 Script -->
+ <script>
+    function Color() {
+        let myColor = ["Red", "Green", "White", "Black"];
+        const colortxt = document.getElementById("MyColor");
+        let str = " ";
+        for(let i = 0; i< myColor.length ; i++)
+            {
+                if ( i+1 == myColor.length)
+                {
+                    str += myColor[i];
+                }else{
+                    str += myColor[i] + ", ";
+                }
+            }
+        colortxt.innerHTML = str;
+    }
+    Color();
+ </script>
+
+</body>
+</html>
